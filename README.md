@@ -1,18 +1,3 @@
-<!--
-Copyright 2023 nago3
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
--->
 # Google Apps Script - aside template
 
 This is a template for Google Apps Script projects
@@ -82,4 +67,28 @@ Deploy production code to Google Apps Script.
 
 ```sh
 $ npm run deploy:prod
+```
+
+## After deployment
+
+After deployment code, you got the script `version` ID of the project.
+You can check the version ID and add the ID with `-i` to the .env file.
+
+e.g.) return value of `npm run deploy`
+
+```text
+src/index.ts → dist...
+created dist in 551ms
+└─ dist/appsscript.json
+└─ dist/index.js
+Pushed 2 files.
+Created version 1.
+- AKfycbxYUxT1r4nviwCwzL8DuQ3JloDp_HgVQmK7nxxxxxxxxXXXXXXXXXXXxxxxxxxxXXXXXX @1.  ← This is the version ID
+```
+
+and so on, add the version ID to the `.env` file.
+
+```env
+PROD_DEPLOYMENT_ID="-i AKfycbxYUxT1r4nviwCwzL8DuQ3JloDp_HgVQmK7nxxxxxxxxXXXXXXXXXXXxxxxxxxxXXXXXX"
+DEV_DEPLOYMENT_ID=""
 ```
